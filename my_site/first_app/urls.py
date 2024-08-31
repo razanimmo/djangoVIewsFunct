@@ -1,6 +1,6 @@
 from django.urls import path
-from . import views
+from first_app import views
 
-urlpattrens=[
+urlpatterns=[
     path('',views.sample_view,)
 ]
