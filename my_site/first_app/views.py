@@ -1,5 +1,6 @@
 from django.shortcuts import render
-from django.http import HttpResponse,HttpResponseNotFound,Http404
+from django.http import HttpResponse,HttpResponseNotFound,Http404,HttpResponseRedirect
+from django.urls import reverse
 
 # Create your views here.
 articles={
@@ -26,9 +27,11 @@ def add_num(request,num1,num2):
 def num_page_redirect(request,num_redirct):
     key_list=list(articles.keys())
     topic=key_list[num_redirct]
+    
+    
     try:
         result=topic
-        return HttpResponse(articles[topic])
+        return HttpResponseRedirect(reverse("topic-page",args=[topic]))
     except:
         Http404("404 generic error")
     
