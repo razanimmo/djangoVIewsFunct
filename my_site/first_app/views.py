@@ -34,4 +34,8 @@ def num_page_redirect(request,num_redirct):
         return HttpResponseRedirect(reverse("topic-page",args=[topic]))
     except:
         Http404("404 generic error")
+
+def html_view(request):
+    return render(request,'first_app/example.html')
+
     
